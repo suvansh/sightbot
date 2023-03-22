@@ -97,7 +97,7 @@ export default function Home() {
                         onChange={handleInput}
                         onKeyDown={handleKeyDown}
                     />
-                    <div class="flex flex-col space-y-5 ...">
+                    <div className="flex flex-col space-y-5 ...">
                         <div>
                         <button
                             className='btn btn-outline btn-success mb-5 '

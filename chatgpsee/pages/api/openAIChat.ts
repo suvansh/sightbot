@@ -122,7 +122,7 @@ async function get_abstracts_from_pmids(pmids: string[]) {
     let xml_response = await fetch(req_url)
     let xml_text = await xml_response.text()
     // let data = new DOMParser().parseFromString(xml_text, "text/xml")
-    let data = await parseXml(xml_text)
+    let data : any = await parseXml(xml_text)
     let articles = data.PubmedArticleSet.PubmedArticle
     console.log(articles[6].MedlineCitation[0].Article[0].Abstract[0].AbstractText[0])
     
