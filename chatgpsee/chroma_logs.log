@@ -1,0 +1,187 @@
+DEBUG:Chroma:Logger created
+DEBUG:Chroma:Index not found
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2023 19:35:26] "[35m[1mPOST /api/chat HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in '/Users/suvansh/Playground/GPSee/chatgpsee/server.py', reloading
+DEBUG:Chroma:Logger created
+DEBUG:Chroma:Index not found
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:time to pre process our knn query: 2.1457672119140625e-06
+DEBUG:Chroma:time to run knn query: 4.9114227294921875e-05
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2023 19:36:58] "[35m[1mPOST /api/chat HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in '/Users/suvansh/Playground/GPSee/chatgpsee/server.py', reloading
+DEBUG:Chroma:Logger created
+DEBUG:Chroma:Index not found
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:time to pre process our knn query: 7.152557373046875e-07
+DEBUG:Chroma:time to run knn query: 7.295608520507812e-05
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2023 19:38:48] "[35m[1mPOST /api/chat HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in '/Users/suvansh/Playground/GPSee/chatgpsee/server.py', reloading
+DEBUG:Chroma:Logger created
+DEBUG:Chroma:Index not found
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:time to pre process our knn query: 9.5367431640625e-07
+DEBUG:Chroma:time to run knn query: 4.76837158203125e-05
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2023 19:39:55] "[35m[1mPOST /api/chat HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in '/Users/suvansh/Playground/GPSee/chatgpsee/server.py', reloading
+DEBUG:Chroma:Logger created
+DEBUG:Chroma:Index not found
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:time to pre process our knn query: 9.5367431640625e-07
+DEBUG:Chroma:time to run knn query: 6.031990051269531e-05
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2023 19:40:58] "[35m[1mPOST /api/chat HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in '/Users/suvansh/Playground/GPSee/chatgpsee/server.py', reloading
+DEBUG:Chroma:Logger created
+DEBUG:Chroma:Index not found
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:time to pre process our knn query: 1.1920928955078125e-06
+DEBUG:Chroma:time to run knn query: 5.3882598876953125e-05
+INFO:werkzeug: * Detected change in '/Users/suvansh/Playground/GPSee/chatgpsee/server.py', reloading
+DEBUG:Chroma:Logger created
+DEBUG:Chroma:Index not found
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:time to pre process our knn query: 2.1457672119140625e-06
+DEBUG:Chroma:time to run knn query: 6.604194641113281e-05
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2023 19:45:43] "POST /api/chat HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2023 19:46:29] "OPTIONS /api/chat HTTP/1.1" 200 -
+DEBUG:Chroma:Index not found
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:time to pre process our knn query: 2.1457672119140625e-06
+DEBUG:Chroma:time to run knn query: 6.103515625e-05
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2023 19:46:41] "POST /api/chat HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/suvansh/Playground/GPSee/chatgpsee/server.py', reloading
+DEBUG:Chroma:Logger created
+DEBUG:Chroma:Index not found
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:time to pre process our knn query: 1.1920928955078125e-06
+DEBUG:Chroma:time to run knn query: 5.602836608886719e-05
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2023 19:51:50] "POST /api/chat HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/suvansh/Playground/GPSee/chatgpsee/server.py', reloading
+DEBUG:Chroma:Logger created
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2023 19:53:25] "[35m[1mPOST /api/chat HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in '/Users/suvansh/Playground/GPSee/chatgpsee/server.py', reloading
+DEBUG:Chroma:Logger created
+DEBUG:Chroma:Index not found
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:time to pre process our knn query: 1.9073486328125e-06
+DEBUG:Chroma:time to run knn query: 5.984306335449219e-05
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2023 19:57:55] "[35m[1mPOST /api/chat HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in '/Users/suvansh/Playground/GPSee/chatgpsee/server.py', reloading
+DEBUG:Chroma:Logger created
+DEBUG:Chroma:Index not found
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:time to pre process our knn query: 1.9073486328125e-06
+DEBUG:Chroma:time to run knn query: 7.390975952148438e-05
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2023 19:58:47] "POST /api/chat HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/suvansh/Playground/GPSee/chatgpsee/server.py', reloading
+DEBUG:Chroma:Logger created
+DEBUG:Chroma:Index not found
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:time to pre process our knn query: 2.1457672119140625e-06
+DEBUG:Chroma:time to run knn query: 7.295608520507812e-05
+WARNING:/opt/anaconda3/envs/gpsee/lib/python3.10/site-packages/langchain/chat_models/openai.py:Retrying langchain.chat_models.openai.ChatOpenAI.completion_with_retry.<locals>._completion_with_retry in 4.0 seconds as it raised APIConnectionError: Error communicating with OpenAI: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')).
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2023 20:04:15] "POST /api/chat HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/suvansh/Playground/GPSee/chatgpsee/server.py', reloading
+DEBUG:Chroma:Logger created
+DEBUG:Chroma:Index not found
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Logger created
+DEBUG:Chroma:Index not found
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:time to pre process our knn query: 1.1920928955078125e-06
+DEBUG:Chroma:time to run knn query: 0.00010275840759277344
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2023 20:36:38] "[35m[1mPOST /api/chat HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in '/Users/suvansh/Playground/GPSee/chatgpsee/server.py', reloading
+DEBUG:Chroma:Logger created
+DEBUG:Chroma:Index not found
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:time to pre process our knn query: 7.152557373046875e-07
+DEBUG:Chroma:time to run knn query: 8.296966552734375e-05
+INFO:werkzeug: * Detected change in '/Users/suvansh/Playground/GPSee/chatgpsee/server.py', reloading
+DEBUG:Chroma:Logger created
+DEBUG:Chroma:Index not found
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:time to pre process our knn query: 1.1920928955078125e-06
+DEBUG:Chroma:time to run knn query: 7.390975952148438e-05
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2023 20:48:51] "POST /api/chat HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2023 20:52:25] "OPTIONS /api/chat HTTP/1.1" 200 -
+DEBUG:Chroma:Index not found
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:time to pre process our knn query: 9.5367431640625e-07
+DEBUG:Chroma:time to run knn query: 6.914138793945312e-05
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2023 20:52:44] "POST /api/chat HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2023 20:55:42] "OPTIONS /api/chat HTTP/1.1" 200 -
+DEBUG:Chroma:Index not found
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:time to pre process our knn query: 7.152557373046875e-07
+DEBUG:Chroma:time to run knn query: 6.413459777832031e-05
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2023 20:55:57] "POST /api/chat HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/Users/suvansh/Playground/GPSee/chatgpsee/server.py', reloading
+DEBUG:Chroma:Logger created
+DEBUG:Chroma:Index not found
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2023 20:57:08] "OPTIONS /api/chat HTTP/1.1" 200 -
+DEBUG:Chroma:time to pre process our knn query: 1.9073486328125e-06
+DEBUG:Chroma:time to run knn query: 8.082389831542969e-05
+DEBUG:Chroma:Index not found
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:time to pre process our knn query: 1.1920928955078125e-06
+DEBUG:Chroma:time to run knn query: 7.224082946777344e-05
+WARNING:/opt/anaconda3/envs/gpsee/lib/python3.10/site-packages/langchain/chat_models/openai.py:Retrying langchain.chat_models.openai.ChatOpenAI.completion_with_retry.<locals>._completion_with_retry in 4.0 seconds as it raised APIConnectionError: Error communicating with OpenAI: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response')).
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2023 21:01:33] "POST /api/chat HTTP/1.1" 200 -
+WARNING:/opt/anaconda3/envs/gpsee/lib/python3.10/site-packages/langchain/chat_models/openai.py:Retrying langchain.chat_models.openai.ChatOpenAI.completion_with_retry.<locals>._completion_with_retry in 4.0 seconds as it raised Timeout: Request timed out: HTTPSConnectionPool(host='api.openai.com', port=443): Read timed out. (read timeout=600).
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2023 21:07:27] "POST /api/chat HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Mar/2023 11:58:20] "OPTIONS /api/chat HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Mar/2023 11:58:21] "[35m[1mPOST /api/chat HTTP/1.1[0m" 500 -
+INFO:werkzeug: * Detected change in '/Users/suvansh/Playground/GPSee/chatgpsee/server.py', reloading
+DEBUG:Chroma:Logger created
+DEBUG:Chroma:Index not found
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:time to pre process our knn query: 1.9073486328125e-06
+DEBUG:Chroma:time to run knn query: 5.984306335449219e-05
+INFO:werkzeug:127.0.0.1 - - [20/Mar/2023 12:03:49] "POST /api/chat HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Mar/2023 12:05:30] "OPTIONS /api/chat HTTP/1.1" 200 -
+DEBUG:Chroma:Index not found
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:time to pre process our knn query: 2.1457672119140625e-06
+DEBUG:Chroma:time to run knn query: 7.200241088867188e-05
+INFO:werkzeug:127.0.0.1 - - [20/Mar/2023 12:05:45] "POST /api/chat HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Mar/2023 12:16:20] "OPTIONS /api/chat HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Mar/2023 12:16:22] "[35m[1mPOST /api/chat HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [20/Mar/2023 12:25:57] "OPTIONS /api/chat HTTP/1.1" 200 -
+DEBUG:Chroma:Index not found
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:time to pre process our knn query: 2.1457672119140625e-06
+DEBUG:Chroma:time to run knn query: 5.888938903808594e-05
+INFO:werkzeug:127.0.0.1 - - [20/Mar/2023 12:26:08] "POST /api/chat HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Mar/2023 15:25:42] "OPTIONS /api/chat HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [20/Mar/2023 15:25:48] "[35m[1mPOST /api/chat HTTP/1.1[0m" 500 -
+DEBUG:Chroma:Index not found
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:Index saved to {self._save_folder}/index.bin
+DEBUG:Chroma:time to pre process our knn query: 1.9073486328125e-06
+DEBUG:Chroma:time to run knn query: 8.416175842285156e-05
+INFO:werkzeug:127.0.0.1 - - [20/Mar/2023 15:26:07] "POST /api/chat HTTP/1.1" 200 -
