@@ -45,7 +45,7 @@ export default function Home() {
 
     const handleEnter = async() => {
         inputRef.current?.focus()
-        const response = await fetch("https://gpsee-server.vercel.app/api/chat", {
+        const response = await fetch("https://gpsee-server-jcqa.vercel.app/api/chat", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -77,7 +77,7 @@ export default function Home() {
                 <div className='my-12'>
                     <p className='mb-3 text-2xl font-bold'>PubMed Search Terms & Number of Articles</p>
                     <input
-                        placeholder='PubMed Search Terms'
+                        placeholder='PubMed Search Term'
                         className='w-full max-w-xs input input-bordered input-accent mb-10'
                         onChange={handlePMInput}
                     />
