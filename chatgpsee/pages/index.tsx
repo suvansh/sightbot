@@ -45,7 +45,7 @@ export default function Home() {
 
     const handleEnter = async() => {
         inputRef.current?.focus()
-        const response = await fetch("https://gpsee-server-jcqa.vercel.app/api/chat", {
+        const response = await fetch("https://gpsee-server-ziamreivrq-uc.a.run.app/api/chat", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
