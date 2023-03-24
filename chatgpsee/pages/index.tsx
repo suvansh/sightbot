@@ -45,7 +45,7 @@ export default function Home() {
 
     const handleEnter = async() => {
         inputRef.current?.focus()
-        const response = await fetch("https://gpsee-server-ziamreivrq-uc.a.run.app/api/chat", {
+        const response = await fetch("http://18.218.42.61/api/chat", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
