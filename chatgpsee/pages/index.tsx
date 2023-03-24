@@ -45,7 +45,7 @@ export default function Home() {
 
     const handleEnter = async() => {
         inputRef.current?.focus()
-        const response = await fetch("http://3.145.11.222/api/chat", {
+        const response = await fetch("http://18.118.206.207/api/chat", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
