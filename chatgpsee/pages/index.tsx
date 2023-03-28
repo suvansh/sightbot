@@ -1,8 +1,10 @@
 import React, { useRef } from "react"
+import FloatingBanner from './FloatingBanner';
 
 interface Conversation {
     role: string
     content: string
+    sources: string[]
 }
 
 export default function Home() {
@@ -11,6 +13,8 @@ export default function Home() {
     const [conversation, setConversation] = React.useState<Conversation[]>([])
     const [OpenAIAPIKey, setOpenAIAPIKey] = React.useState<string>("")
     const [isLoading, setIsLoading] = React.useState(false);
+    const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
+
     const inputRef = useRef<HTMLInputElement>(null)
 
 
@@ -36,24 +40,38 @@ export default function Home() {
     }
 
     const handleEnter = async() => {
-        setIsLoading(true);
-        inputRef.current?.focus()
-        const response = await fetch("https://gpsee-server.brilliantly.ai/api/chat", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ messages: conversation, question: value, openai_api_key: OpenAIAPIKey }),
-        })
+        try {
+            setIsLoading(true);
+            inputRef.current?.focus()
+            const response = await fetch("https://gpsee-server.brilliantly.ai/api/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ messages: conversation, question: value, openai_api_key: OpenAIAPIKey }),
+            })
 
-        const data = await response.json()
-        setValue("")
-        setIsLoading(false);
-        setConversation([
-            ...conversation,
-            { role: "user", content: value },
-            { role: "assistant", content: data.answer },
-        ])
+            if (!response.ok) {
+                const errorData = await response.json();
+                // Set a custom error message or use the one from the response
+                setErrorMessage('An error occurred during the request. Please refresh the page.');
+                return;
+            }
+
+            // Clear the error message if the request is successful
+            setErrorMessage(null);
+
+            const data = await response.json()
+            setValue("")
+            setIsLoading(false);
+            setConversation([
+                ...conversation,
+                { role: "user", content: value , sources: [] },
+                { role: "assistant", content: data.answer , sources: data.citations },
+            ])
+        } catch (error) {
+            setErrorMessage('An error occurred during the request. Please refresh the page.');
+        }
     }
 
 
@@ -64,20 +82,30 @@ export default function Home() {
         setConversation([])
     }
 
+    function displayTextWithNewlines(text: string) {
+        return text.split('\n').map((line, index) => (
+            <React.Fragment key={index}>
+                {line}
+                <br />
+            </React.Fragment>
+        ));
+    }
+
     return (
         <div className='w-full'>
+            {errorMessage && <FloatingBanner message={errorMessage} />}
             <div className='flex flex-col items-center justify-center mt-40 text-center'>
-                <h1 className='text-6xl'>Welcome to ChatGPSee</h1>
+                <h1 className='text-6xl'>Welcome to ChatGPSee, a PubMed chatbot.</h1>
                 <div className='my-12'>
-                    Enter your OpenAI API Key: <input
+                    <input
                         placeholder='OpenAI API Key'
                         className='w-full max-w-xs input input-bordered input-accent mb-10'
                         onChange={handleOpenAIAPIKeyInput}
                     />
 
-                    <p className='mb-3 text-2xl font-bold'>Insert your question here:</p>
+                    <p className='mb-3 text-2xl font-bold'>Enter a question for ChatGPSee:</p>
                     <input
-                        placeholder='Question'
+                        placeholder='What are some treatments for COVID-19?'
                         className='w-full max-w-s input input-bordered input-accent mb-3'
                         value={value}
                         onChange={handleInput}
@@ -111,13 +139,37 @@ export default function Home() {
                             {item.role === "assistant" ? (
                                 <div className='chat chat-start'>
                                     <div className='chat-bubble chat-bubble-base-100 text-2xl'>
-                                        {item.content}
+                                        {displayTextWithNewlines(item.content)}
+                                        {item.sources && (
+                                            <div>
+                                                Sources: {item.sources.map((source, sourceIndex, sourcesArray) => (
+                                                    <React.Fragment key={sourceIndex}>
+                                                        <a className="source-link" href={`https://pubmed.ncbi.nlm.nih.gov/${source}/`} target="_blank" rel="noopener noreferrer">
+                                                            {source}
+                                                        </a>
+                                                        {sourceIndex !== sourcesArray.length - 1 && ', '}
+                                                    </React.Fragment>
+                                                ))}
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             ) : (
                                 <div className='chat chat-end'>
-                                        <div className='chat-bubble chat-bubble-accent text-2xl'>
-                                        {item.content}
+                                    <div className='chat-bubble chat-bubble-accent text-2xl'>
+                                        {displayTextWithNewlines(item.content)}
+                                        {item.sources && (
+                                            <div>
+                                                {item.sources.map((source, sourceIndex, sourcesArray) => (
+                                                    <React.Fragment key={sourceIndex}>
+                                                        <a href={`https://example.com?source=${source}`} target="_blank" rel="noopener noreferrer">
+                                                            {source}
+                                                        </a>
+                                                        {sourceIndex !== sourcesArray.length - 1 && ', '}
+                                                    </React.Fragment>
+                                                ))}
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
                             )}
@@ -127,7 +179,7 @@ export default function Home() {
                         <React.Fragment>
                                 <br />
                                 <div className='chat chat-end'>
-                                        <div className='chat-bubble chat-bubble-accent text-2xl'>
+                                    <div className='chat-bubble chat-bubble-accent text-2xl'>
                                         {value}
                                     </div>
                                 </div>
@@ -137,7 +189,9 @@ export default function Home() {
                                     </div>
                                 </div>
                         </React.Fragment>}
+
                 </div>
+
             </div>
         </div>
     )
