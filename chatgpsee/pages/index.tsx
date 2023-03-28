@@ -9,26 +9,17 @@ export default function Home() {
     // States
     const [value, setValue] = React.useState<string>("")
     const [conversation, setConversation] = React.useState<Conversation[]>([])
-    const [PMNum, setPMNum] = React.useState<number>(20)
-    const [PMInput, setPMInput] = React.useState<string>("")
+    const [OpenAIAPIKey, setOpenAIAPIKey] = React.useState<string>("")
     const [isLoading, setIsLoading] = React.useState(false);
     const inputRef = useRef<HTMLInputElement>(null)
 
 
-    const handlePMInput = React.useCallback(
+    const handleOpenAIAPIKeyInput = React.useCallback(
         (e: React.ChangeEvent<HTMLInputElement>) => {
-            setPMInput(e.target.value)
+            setOpenAIAPIKey(e.target.value)
         },
         []
     )
-
-    const handlePMNumber = React.useCallback(
-        (e: React.ChangeEvent<HTMLInputElement>) => {
-            setPMNum(+e.target.value)
-        },
-        []
-    )
-
 
 
     const handleInput = React.useCallback(
@@ -52,7 +43,7 @@ export default function Home() {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ messages: conversation, question: value, num_articles: PMNum, input: PMInput }),
+            body: JSON.stringify({ messages: conversation, question: value, openai_api_key: OpenAIAPIKey }),
         })
 
         const data = await response.json()
@@ -78,19 +69,11 @@ export default function Home() {
             <div className='flex flex-col items-center justify-center mt-40 text-center'>
                 <h1 className='text-6xl'>Welcome to ChatGPSee</h1>
                 <div className='my-12'>
-                    <p className='mb-3 text-2xl font-bold'>PubMed Search Terms & Number of Articles</p>
-                    <input
-                        placeholder='PubMed Search Term'
+                    Enter your OpenAI API Key: <input
+                        placeholder='OpenAI API Key'
                         className='w-full max-w-xs input input-bordered input-accent mb-10'
-                        onChange={handlePMInput}
+                        onChange={handleOpenAIAPIKeyInput}
                     />
-
-                    <input
-                        placeholder='# of articles'
-                        className='w-full max-w-xs input input-bordered input-accent mb-10'
-                        onChange={handlePMNumber}
-                    />
-
 
                     <p className='mb-3 text-2xl font-bold'>Insert your question here:</p>
                     <input
