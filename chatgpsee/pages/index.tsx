@@ -11,6 +11,7 @@ export default function Home() {
     const [conversation, setConversation] = React.useState<Conversation[]>([])
     const [PMNum, setPMNum] = React.useState<number>(20)
     const [PMInput, setPMInput] = React.useState<string>("")
+    const [isLoading, setIsLoading] = React.useState(false);
     const inputRef = useRef<HTMLInputElement>(null)
 
 
@@ -44,6 +45,7 @@ export default function Home() {
     }
 
     const handleEnter = async() => {
+        setIsLoading(true);
         inputRef.current?.focus()
         const response = await fetch("https://gpsee-server.brilliantly.ai/api/chat", {
             method: "POST",
@@ -55,6 +57,7 @@ export default function Home() {
 
         const data = await response.json()
         setValue("")
+        setIsLoading(false);
         setConversation([
             ...conversation,
             { role: "user", content: value },
@@ -83,7 +86,7 @@ export default function Home() {
                     />
 
                     <input
-                        placeholder='Number of articles'
+                        placeholder='# of articles'
                         className='w-full max-w-xs input input-bordered input-accent mb-10'
                         onChange={handlePMNumber}
                     />
@@ -137,6 +140,20 @@ export default function Home() {
                             )}
                         </React.Fragment>
                     ))}
+                    {isLoading &&
+                        <React.Fragment>
+                                <br />
+                                <div className='chat chat-end'>
+                                        <div className='chat-bubble chat-bubble-accent text-2xl'>
+                                        {value}
+                                    </div>
+                                </div>
+                                <div className='chat chat-start'>
+                                    <div className='chat-bubble chat-bubble-base-100 text-2xl'>
+                                        Loading...
+                                    </div>
+                                </div>
+                        </React.Fragment>}
                 </div>
             </div>
         </div>
