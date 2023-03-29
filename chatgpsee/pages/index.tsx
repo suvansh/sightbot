@@ -112,11 +112,11 @@ export default function Home() {
             {errorMessage && <FloatingBanner message={errorMessage} />}
             <div className='flex flex-col items-center justify-center mt-40 text-center'>
                 <h1 className='text-6xl'>Welcome to ChatGPSee, a PubMed chatbot.</h1>
-                <div className='my-12'>
+                <div className='my-10'>
                     <input
                         placeholder='OpenAI API Key'
                         value={OpenAIAPIKey}
-                        className='w-full max-w-xs input input-bordered input-accent mb-10'
+                        className='max-w-s input input-bordered input-accent'
                         onChange={handleOpenAIAPIKeyInput}
                     />
                     <Tooltip
@@ -130,34 +130,6 @@ export default function Home() {
                         }
                     />
 
-                    <p className='mb-3 text-2xl font-bold'>Enter a question for ChatGPSee:</p>
-                    <input
-                        placeholder='What are some treatments for DME?'
-                        className='w-full max-w-s input input-bordered input-accent mb-3'
-                        value={value}
-                        onChange={handleInput}
-                        onKeyDown={handleKeyDown}
-                    />
-                    <div className="flex flex-col space-y-5 ...">
-                        <div>
-                        <button
-                            className='btn btn-outline btn-success mb-5 '
-                            onClick={handleEnter}
-                        >
-                            Enter
-                        </button>
-                        </div>
-
-                        <div>
-                        <button
-                        
-                            className='btn btn-outline btn-warning mb-5'
-                            onClick={handleRefresh}
-                        >
-                            Start New Conversation
-                        </button>
-                        </div>
-                    </div>
                     </div>
                 <div className='textarea'>
                     {conversation.map((item, index) => (
@@ -217,6 +189,40 @@ export default function Home() {
                                 </div>
                         </React.Fragment>}
 
+                </div>
+
+            </div>
+            <div>
+            <div className='flex flex-col items-center justify-center text-center'>
+
+            <p className='mb-3 text-2xl font-bold items-centered'>Enter a question for ChatGPSee:</p>
+            <input
+                placeholder='What are some treatments for DME?'
+                className='w-1/2 max-w-l items-centered justify-center input input-bordered input-accent mb-3 text-2xl'
+                value={value}
+                onChange={handleInput}
+                onKeyDown={handleKeyDown}
+            />
+            <div className="flex flex-col space-y-5 ...">
+                <div>
+                    <button
+                        className='btn btn-outline btn-success mb-5 '
+                        onClick={handleEnter}
+                    >
+                        Enter
+                    </button>
+                </div>
+
+                <div>
+                    <button
+
+                        className='btn btn-outline btn-warning mb-5'
+                        onClick={handleRefresh}
+                    >
+                        Start New Conversation
+                    </button>
+                    </div>
+                    </div>
                 </div>
 
             </div>
