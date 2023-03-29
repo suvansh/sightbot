@@ -1,5 +1,6 @@
 import React, { useRef } from "react"
 import FloatingBanner from './FloatingBanner';
+import { useRouter } from 'next/router';
 
 interface Conversation {
     role: string
@@ -16,6 +17,19 @@ export default function Home() {
     const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
 
     const inputRef = useRef<HTMLInputElement>(null)
+    const router = useRouter()
+    const openai_api_key = router.query['openai_api_key']
+    
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    React.useEffect(() => {
+        if (openai_api_key) {
+            if (Array.isArray(openai_api_key)) {
+                setOpenAIAPIKey(openai_api_key[0])
+            } else {
+                setOpenAIAPIKey(openai_api_key)
+            }
+        }
+      }, [openai_api_key]);
 
 
     const handleOpenAIAPIKeyInput = React.useCallback(
@@ -99,13 +113,14 @@ export default function Home() {
                 <div className='my-12'>
                     <input
                         placeholder='OpenAI API Key'
+                        value={OpenAIAPIKey}
                         className='w-full max-w-xs input input-bordered input-accent mb-10'
                         onChange={handleOpenAIAPIKeyInput}
                     />
 
                     <p className='mb-3 text-2xl font-bold'>Enter a question for ChatGPSee:</p>
                     <input
-                        placeholder='What are some treatments for COVID-19?'
+                        placeholder='What are some treatments for DME?'
                         className='w-full max-w-s input input-bordered input-accent mb-3'
                         value={value}
                         onChange={handleInput}
