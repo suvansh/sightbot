@@ -1,5 +1,6 @@
 import React, { useRef } from "react"
 import FloatingBanner from './FloatingBanner';
+import Tooltip from './Tooltip';
 import { useRouter } from 'next/router';
 
 interface Conversation {
@@ -7,6 +8,7 @@ interface Conversation {
     content: string
     sources: string[]
 }
+  
 
 export default function Home() {
     // States
@@ -116,6 +118,16 @@ export default function Home() {
                         value={OpenAIAPIKey}
                         className='w-full max-w-xs input input-bordered input-accent mb-10'
                         onChange={handleOpenAIAPIKeyInput}
+                    />
+                    <Tooltip
+                        content={
+                            <>
+                            Generate yours{' '}
+                            <a href="https://platform.openai.com/account/api-keys" target="_blank" rel="noopener noreferrer">
+                                here
+                            </a>!
+                            </>
+                        }
                     />
 
                     <p className='mb-3 text-2xl font-bold'>Enter a question for ChatGPSee:</p>
