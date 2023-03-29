@@ -23,7 +23,7 @@ a.source-link {
     cursor: pointer;
 }
 
-a.source-list:hover {
+a.source-link:hover {
     text-decoration: none;
 }
 
