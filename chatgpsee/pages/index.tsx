@@ -18,7 +18,7 @@ export default function Home() {
 
     const inputRef = useRef<HTMLInputElement>(null)
     const router = useRouter()
-    const openai_api_key = router.query['openai_api_key']
+    const openai_api_key = router.query['key']
     
     // eslint-disable-next-line react-hooks/exhaustive-deps
     React.useEffect(() => {
