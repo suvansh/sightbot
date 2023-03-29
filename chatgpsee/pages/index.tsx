@@ -37,6 +37,18 @@ export default function Home() {
     const handleOpenAIAPIKeyInput = React.useCallback(
         (e: React.ChangeEvent<HTMLInputElement>) => {
             setOpenAIAPIKey(e.target.value)
+            const updatedQuery = {
+                ...router.query,
+                key: e.target.value,
+            }
+            router.replace(
+                {
+                    pathname: router.pathname,
+                    query: updatedQuery,
+                },
+                undefined,
+                { shallow: true }
+            )  
         },
         []
     )
