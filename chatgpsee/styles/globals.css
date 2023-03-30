@@ -125,4 +125,24 @@ a.source-link:hover {
   .tooltip .tooltipText a:hover {
     text-decoration: none;
   }
+    
+
+  .input-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .input-container input {
+    flex: 1;
+    padding: 10px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  
+  .input-container button {
+    padding: 10px 20px;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-bottom: 0.8rem;
+  }
   

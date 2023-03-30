@@ -1,6 +1,8 @@
 import React, { useRef } from "react"
 import FloatingBanner from './FloatingBanner';
 import Tooltip from './Tooltip';
+import RangeSlider from "react-range-slider-input";
+import 'react-range-slider-input/dist/style.css';
 import { useRouter } from 'next/router';
 
 interface Conversation {
@@ -17,6 +19,7 @@ export default function Home() {
     const [OpenAIAPIKey, setOpenAIAPIKey] = React.useState<string>("")
     const [isLoading, setIsLoading] = React.useState(false);
     const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
+    const [years, setYears] = React.useState([1900, 2023]);
 
     const inputRef = useRef<HTMLInputElement>(null)
     const router = useRouter()
@@ -76,7 +79,7 @@ export default function Home() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ messages: conversation, question: value, openai_api_key: OpenAIAPIKey }),
+                body: JSON.stringify({ messages: conversation, question: value, openai_api_key: OpenAIAPIKey, years: years }),
             })
 
             if (!response.ok) {
@@ -141,8 +144,8 @@ export default function Home() {
                             </>
                         }
                     />
+                </div>
 
-                    </div>
                 <div className='textarea'>
                     {conversation.map((item, index) => (
                         <React.Fragment key={index}>
@@ -208,23 +211,26 @@ export default function Home() {
             <div className='flex flex-col items-center justify-center text-center'>
 
             <p className='mb-3 text-2xl font-bold items-centered'>Enter a question for ChatGPSee:</p>
-            <input
-                placeholder='What are some treatments for DME?'
-                className='w-1/2 max-w-l items-centered justify-center input input-bordered input-accent mb-3 text-2xl'
-                value={value}
-                onChange={handleInput}
-                onKeyDown={handleKeyDown}
-            />
+            <div className="input-container" style={{width: "30%"}}>
+                <input
+                    placeholder='What are some treatments for DME?'
+                    className='w-1/2 max-w-l items-centered justify-center input input-bordered input-accent mb-3 text-2xl'
+                    value={value}
+                    onChange={handleInput}
+                    onKeyDown={handleKeyDown}
+                />
+                <button
+                    className='btn btn-outline btn-success mb-5 '
+                    onClick={handleEnter}
+                >
+                    Enter
+                </button>
+            </div>
+            <div style={{padding: "20px", width: "30%"}}>
+                <RangeSlider min="1900" max="2023" value={years} onInput={setYears} />
+                <p> {years[0]} - {years[1]} </p>
+            </div>
             <div className="flex flex-col space-y-5 ...">
-                <div>
-                    <button
-                        className='btn btn-outline btn-success mb-5 '
-                        onClick={handleEnter}
-                    >
-                        Enter
-                    </button>
-                </div>
-
                 <div>
                     <button
 
