@@ -167,3 +167,15 @@ a.source-link:hover {
   .chat-bubble {
     text-align: left;
   }
+
+  .query-info-btn {
+    cursor: pointer;
+    color: #663399;
+    font-size: large;
+    margin-right: 8px;
+  }
+
+  .query-info-text {
+    font-size: small;
+    font-style: italic;
+  }

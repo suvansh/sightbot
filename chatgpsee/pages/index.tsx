@@ -1,6 +1,7 @@
 import React, { useRef } from "react"
 import FloatingBanner from './FloatingBanner';
 import Tooltip from './Tooltip';
+import QueryInfo from './QueryInfo';
 import ModeButtons from './ModeButtons';
 import RangeSlider from "react-range-slider-input";
 import 'react-range-slider-input/dist/style.css';
@@ -195,9 +196,7 @@ export default function Home() {
                                 <div className='chat chat-end'>
                                     <div className='chat-bubble chat-bubble-accent text-2xl'>
                                         {displayTextWithNewlines(item.content)}
-                                        <button className='btn btn-outline btn-success mb-5' title='See PubMed query'>
-                                            <i className="fa fa-info-circle" aria-hidden="true"></i>
-                                        </button>
+                                        <QueryInfo query={item.pubMedQuery} />
                                     </div>
                                 </div>
                             )}
@@ -254,14 +253,14 @@ export default function Home() {
                         <br/>
                         <ModeButtons mode={mode} onModeChange={handleModeChange}/>
                         <br/>
-                        {/* <label htmlFor="pubmed-query" className="label-pubmed-query">PubMed query:</label>
+                        <label htmlFor="pubmed-query" className="label-pubmed-query">PubMed query:</label>
                         <input
                             type="text"
                             className='max-w-s input input-bordered input-accent'
                             id="pubmed-query"
                             name="pubmed-query"
                             onKeyDown={handleKeyDown}
-                            onChange={handlePubMedQueryChange} /> */}
+                            onChange={handlePubMedQueryChange} />
                         <Tooltip
                             content={
                                 <>
