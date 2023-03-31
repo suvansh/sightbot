@@ -224,7 +224,7 @@ export default function Home() {
             <div className='flex flex-col items-center justify-center text-center'>
 
             <p className='mb-3 text-2xl font-bold items-centered'>Enter a question for ChatGPSee:</p>
-            <div className="input-container" style={{width: "30%"}}>
+            <div className="input-container">
                 <input
                     placeholder='What are some treatments for DME?'
                     className='w-1/2 max-w-l items-centered justify-center input input-bordered input-accent mb-3 text-2xl'
@@ -240,7 +240,7 @@ export default function Home() {
                     <i className="fa fa-paper-plane" aria-hidden="true"></i>
                 </button>
             </div>
-            <div style={{padding: "20px", width: "30%"}}>
+            <div className="advanced-search">
                 {/* Advanced search */}
                 <button type="button" className="advanced-button" onClick={toggleAdvancedVisibility}>
                     Advanced
@@ -253,9 +253,9 @@ export default function Home() {
                         <br/>
                         <ModeButtons mode={mode} onModeChange={handleModeChange}/>
                         <br/>
-                        <label htmlFor="pubmed-query" className="label-pubmed-query">PubMed query:</label>
                         <input
                             type="text"
+                            placeholder='Enter PubMed query'
                             className='max-w-s input input-bordered input-accent'
                             id="pubmed-query"
                             name="pubmed-query"

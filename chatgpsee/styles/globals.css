@@ -137,6 +137,7 @@ a.source-link:hover {
     padding: 10px;
     margin-right: 10px;
     vertical-align: middle;
+    width: 50%;
   }
   
   .input-container button {
@@ -144,6 +145,12 @@ a.source-link:hover {
     cursor: pointer;
     vertical-align: middle;
     margin-bottom: 0.8rem;
+  }
+
+  @media (max-width: 768px) {
+    .input-container {
+      width: 80%;
+    }
   }
   
   .mode-button {
@@ -162,6 +169,17 @@ a.source-link:hover {
 
   .advanced-button {
     color: #21b2a5;
+  }
+
+  .advanced-search {
+    padding: 20px;
+    width: 40%;
+  }
+
+  @media (max-width: 768px) {
+    .advanced-search {
+      width: 80%;
+    }
   }
 
   .chat-bubble {
