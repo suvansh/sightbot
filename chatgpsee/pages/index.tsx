@@ -1,6 +1,7 @@
 import React, { useRef } from "react"
 import FloatingBanner from './FloatingBanner';
 import Tooltip from './Tooltip';
+import ModeButtons from './ModeButtons';
 import RangeSlider from "react-range-slider-input";
 import 'react-range-slider-input/dist/style.css';
 import { useRouter } from 'next/router';
@@ -20,6 +21,7 @@ export default function Home() {
     const [isLoading, setIsLoading] = React.useState(false);
     const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
     const [years, setYears] = React.useState([1900, 2023]);
+    const [mode, setMode] = React.useState('abstracts');
 
     const inputRef = useRef<HTMLInputElement>(null)
     const router = useRouter()
@@ -70,6 +72,10 @@ export default function Home() {
         }
     }
 
+    const handleModeChange = (mode: string) => {
+        setMode(mode);
+    };
+
     const handleEnter = async() => {
         try {
             setIsLoading(true);
@@ -79,7 +85,7 @@ export default function Home() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ messages: conversation, question: value, openai_api_key: OpenAIAPIKey, years: years }),
+                body: JSON.stringify({ messages: conversation, question: value, openai_api_key: OpenAIAPIKey, years: years, search_mode: mode}),
             })
 
             if (!response.ok) {
@@ -229,6 +235,8 @@ export default function Home() {
             <div style={{padding: "20px", width: "30%"}}>
                 <RangeSlider min="1900" max="2023" value={years} onInput={setYears} />
                 <p> {years[0]} - {years[1]} </p>
+                <br/>
+                <ModeButtons mode={mode} onModeChange={handleModeChange}/>
             </div>
             <div className="flex flex-col space-y-5 ...">
                 <div>

@@ -125,7 +125,7 @@ a.source-link:hover {
   .tooltip .tooltipText a:hover {
     text-decoration: none;
   }
-    
+
 
   .input-container {
     display: flex;
@@ -146,3 +146,12 @@ a.source-link:hover {
     margin-bottom: 0.8rem;
   }
   
+  .mode-button {
+    display: inline-block;
+    margin-right: 16px;
+    cursor: pointer;
+  }
+  
+  .mode-button input[type='radio'] {
+    margin-right: 4px;
+  }
