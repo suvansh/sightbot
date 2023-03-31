@@ -10,6 +10,7 @@ interface Conversation {
     role: string
     content: string
     sources: string[]
+    pubMedQuery: string
 }
   
 
@@ -21,7 +22,11 @@ export default function Home() {
     const [isLoading, setIsLoading] = React.useState(false);
     const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
     const [years, setYears] = React.useState([1900, 2023]);
-    const [mode, setMode] = React.useState('abstracts');
+
+    // advanced search
+    const [isAdvancedVisible, setIsAdvancedVisible] = React.useState<boolean>(false);
+    const [mode, setMode] = React.useState<string>('abstracts');
+    const [pubMedQuery, setPubMedQuery] = React.useState<string>('');
 
     const inputRef = useRef<HTMLInputElement>(null)
     const router = useRouter()
@@ -38,6 +43,9 @@ export default function Home() {
         }
       }, [openai_api_key]);
 
+    const toggleAdvancedVisibility = () => {
+        setIsAdvancedVisible(!isAdvancedVisible);
+    };
 
     const handleOpenAIAPIKeyInput = React.useCallback(
         (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -76,6 +84,10 @@ export default function Home() {
         setMode(mode);
     };
 
+    const handlePubMedQueryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setPubMedQuery(e.target.value);
+    };
+
     const handleEnter = async() => {
         try {
             setIsLoading(true);
@@ -85,7 +97,12 @@ export default function Home() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ messages: conversation, question: value, openai_api_key: OpenAIAPIKey, years: years, search_mode: mode}),
+                body: JSON.stringify({ messages: conversation,
+                                        question: value,
+                                        openai_api_key: OpenAIAPIKey,
+                                        years: years,
+                                        search_mode: mode,
+                                        pubmed_query: pubMedQuery}),
             })
 
             if (!response.ok) {
@@ -103,15 +120,15 @@ export default function Home() {
             setIsLoading(false);
             setConversation([
                 ...conversation,
-                { role: "user", content: value , sources: [] },
-                { role: "assistant", content: data.answer , sources: data.citations },
+                { role: "user", content: value , sources: [], pubMedQuery: data.pubmed_query },
+                { role: "assistant", content: data.answer , sources: data.citations, pubMedQuery: "" },
             ])
+            console.log(data.pubmed_query)
+            setPubMedQuery(data.pubmed_query)
         } catch (error) {
             setErrorMessage('An error occurred during the request. Please refresh the page.');
         }
     }
-
-
 
     const handleRefresh = () => {
         inputRef.current?.focus()
@@ -178,18 +195,9 @@ export default function Home() {
                                 <div className='chat chat-end'>
                                     <div className='chat-bubble chat-bubble-accent text-2xl'>
                                         {displayTextWithNewlines(item.content)}
-                                        {item.sources && (
-                                            <div>
-                                                {item.sources.map((source, sourceIndex, sourcesArray) => (
-                                                    <React.Fragment key={sourceIndex}>
-                                                        <a href={`https://example.com?source=${source}`} target="_blank" rel="noopener noreferrer">
-                                                            {source}
-                                                        </a>
-                                                        {sourceIndex !== sourcesArray.length - 1 && ', '}
-                                                    </React.Fragment>
-                                                ))}
-                                            </div>
-                                        )}
+                                        <button className='btn btn-outline btn-success mb-5' title='See PubMed query'>
+                                            <i className="fa fa-info-circle" aria-hidden="true"></i>
+                                        </button>
                                     </div>
                                 </div>
                             )}
@@ -228,15 +236,42 @@ export default function Home() {
                 <button
                     className='btn btn-outline btn-success mb-5 '
                     onClick={handleEnter}
+                    title="Send message"
                 >
-                    Enter
+                    <i className="fa fa-paper-plane" aria-hidden="true"></i>
                 </button>
             </div>
             <div style={{padding: "20px", width: "30%"}}>
-                <RangeSlider min="1900" max="2023" value={years} onInput={setYears} />
-                <p> {years[0]} - {years[1]} </p>
-                <br/>
-                <ModeButtons mode={mode} onModeChange={handleModeChange}/>
+                {/* Advanced search */}
+                <button type="button" className="advanced-button" onClick={toggleAdvancedVisibility}>
+                    Advanced
+                </button>
+                {isAdvancedVisible && (
+                    <div>
+                        <br/>
+                        <RangeSlider min="1900" max="2023" value={years} onInput={setYears} />
+                        <p style={{padding: "0.5em"}}> Answer based on articles published from {years[0]} - {years[1]}. </p>
+                        <br/>
+                        <ModeButtons mode={mode} onModeChange={handleModeChange}/>
+                        <br/>
+                        <label htmlFor="pubmed-query" className="label-pubmed-query">PubMed query:</label>
+                        <input
+                            type="text"
+                            className='max-w-s input input-bordered input-accent'
+                            id="pubmed-query"
+                            name="pubmed-query"
+                            onKeyDown={handleKeyDown}
+                            onChange={handlePubMedQueryChange} />
+                        <Tooltip
+                            content={
+                                <>
+                                Enter a search term that will be used to find relevant articles.
+                                </>
+                            }
+                        />
+                    </div>
+                )}
+                
             </div>
             <div className="flex flex-col space-y-5 ...">
                 <div>
@@ -244,8 +279,9 @@ export default function Home() {
 
                         className='btn btn-outline btn-warning mb-5'
                         onClick={handleRefresh}
+                        title="Clear conversation"
                     >
-                        Start New Conversation
+                        Clear <i style={{padding: "0.5em"}} className="fa fa-trash" aria-hidden="true"></i>
                     </button>
                     </div>
                     </div>

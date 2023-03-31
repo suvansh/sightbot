@@ -30,7 +30,7 @@ const ModeButtons: React.FC<ModeProps> = ({mode, onModeChange}) => {
           checked={mode === 'fulltext'}
           onChange={handleChange}
         />
-        Full Text (Open Access Only)
+        Full Articles (Open Access Only)
       </label>
     </div>
   );

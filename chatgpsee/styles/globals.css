@@ -98,7 +98,7 @@ a.source-link:hover {
   }
   
   .tooltip .tooltipText {
-    width: 120px;
+    width: 200px;
     background-color: #333;
     color: #a6adbb;
     text-align: center;
@@ -110,7 +110,7 @@ a.source-link:hover {
     z-index: 1;
     bottom: 125%;
     left: 50%;
-    margin-left: -60px;
+    margin-left: -100px;
   
     visibility: visible;
     opacity: 1;
@@ -154,4 +154,16 @@ a.source-link:hover {
   
   .mode-button input[type='radio'] {
     margin-right: 4px;
+  }
+
+  .label-pubmed-query {
+    margin-right: 8px;
+  }
+
+  .advanced-button {
+    color: #21b2a5;
+  }
+
+  .chat-bubble {
+    text-align: left;
   }
