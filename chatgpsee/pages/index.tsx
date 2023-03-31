@@ -254,14 +254,14 @@ export default function Home() {
                         <br/>
                         <ModeButtons mode={mode} onModeChange={handleModeChange}/>
                         <br/>
-                        <label htmlFor="pubmed-query" className="label-pubmed-query">PubMed query:</label>
+                        {/* <label htmlFor="pubmed-query" className="label-pubmed-query">PubMed query:</label>
                         <input
                             type="text"
                             className='max-w-s input input-bordered input-accent'
                             id="pubmed-query"
                             name="pubmed-query"
                             onKeyDown={handleKeyDown}
-                            onChange={handlePubMedQueryChange} />
+                            onChange={handlePubMedQueryChange} /> */}
                         <Tooltip
                             content={
                                 <>
