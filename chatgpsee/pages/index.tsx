@@ -114,7 +114,7 @@ export default function Home() {
                 setIsLoading(false);
                 const errorData = await response.json();
                 // Set a custom error message or use the one from the response
-                setErrorMessage(`An error occurred during the request, you may need to refresh the page: ${errorData.message}`);
+                setErrorMessage(`An error occurred during the request: ${errorData.message}`);
                 return;
             }
 
@@ -132,7 +132,7 @@ export default function Home() {
             console.log(data.pubmed_query)
             setPubMedQuery(data.pubmed_query)
         } catch (error: any) {
-            setErrorMessage(`An error occurred during the request, please refresh the page: ${error.message}`);
+            setErrorMessage(`An error occurred during the request: ${error.message}`);
         }
     }
 
