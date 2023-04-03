@@ -197,3 +197,10 @@ a.source-link:hover {
     font-size: small;
     font-style: italic;
   }
+
+  .bibtex-btn {
+    cursor: pointer;
+    color: #663399;
+    font-size: large;
+    margin-right: 8px;
+  }

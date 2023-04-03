@@ -3,6 +3,7 @@ import FloatingBanner from './FloatingBanner';
 import Tooltip from './Tooltip';
 import QueryInfo from './QueryInfo';
 import ModeButtons from './ModeButtons';
+import CopyIcon from './CopyIcon';
 import RangeSlider from "react-range-slider-input";
 import 'react-range-slider-input/dist/style.css';
 import { useRouter } from 'next/router';
@@ -12,6 +13,7 @@ interface Conversation {
     content: string
     sources: string[]
     pubMedQuery: string
+    bibtex: string
 }
   
 
@@ -126,8 +128,8 @@ export default function Home() {
             setIsLoading(false);
             setConversation([
                 ...conversation,
-                { role: "user", content: value , sources: [], pubMedQuery: data.pubmed_query },
-                { role: "assistant", content: data.answer , sources: data.citations, pubMedQuery: "" },
+                { role: "user", content: value , sources: [], pubMedQuery: data.pubmed_query , bibtex: "" },
+                { role: "assistant", content: data.answer , sources: data.citations, pubMedQuery: "" , bibtex: data.bibtex },
             ])
             setPubMedQuery('')
         } catch (error: any) {
@@ -192,6 +194,8 @@ export default function Home() {
                                                         {sourceIndex !== sourcesArray.length - 1 && ', '}
                                                     </React.Fragment>
                                                 ))}
+                                                <br/>
+                                                <CopyIcon textToCopy={item.bibtex} />
                                             </div>
                                         )}
                                     </div>
