@@ -156,7 +156,7 @@ export default function Home() {
         <div className='w-full'>
             {errorMessage && <FloatingBanner message={errorMessage} />}
             <div className='flex flex-col items-center justify-center mt-40 text-center'>
-                <h1 className='text-6xl'>Welcome to ChatGPSee, a PubMed chatbot.</h1>
+                <h1 className='text-6xl'>Welcome to SightBot.</h1>
                 <div className='my-10'>
                     <input
                         placeholder='OpenAI API Key'
@@ -231,7 +231,7 @@ export default function Home() {
             <div>
             <div className='flex flex-col items-center justify-center text-center'>
 
-            <p className='mb-3 text-2xl font-bold items-centered'>Enter a question for ChatGPSee:</p>
+            {/* <p className='mb-3 text-2xl font-bold items-centered'>Enter a question for ChatGPSee:</p> */}
             <div className="input-container">
                 <input
                     placeholder='What are some treatments for DME?'

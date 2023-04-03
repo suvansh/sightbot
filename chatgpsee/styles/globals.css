@@ -130,6 +130,7 @@ a.source-link:hover {
   .input-container {
     display: flex;
     align-items: center;
+    width: 40%;
   }
   
   .input-container input {
@@ -137,7 +138,6 @@ a.source-link:hover {
     padding: 10px;
     margin-right: 10px;
     vertical-align: middle;
-    width: 50%;
   }
   
   .input-container button {
