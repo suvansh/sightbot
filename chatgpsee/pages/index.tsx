@@ -129,8 +129,7 @@ export default function Home() {
                 { role: "user", content: value , sources: [], pubMedQuery: data.pubmed_query },
                 { role: "assistant", content: data.answer , sources: data.citations, pubMedQuery: "" },
             ])
-            console.log(data.pubmed_query)
-            setPubMedQuery(data.pubmed_query)
+            setPubMedQuery('')
         } catch (error: any) {
             setErrorMessage(`An error occurred during the request: ${error.message}`);
         }
