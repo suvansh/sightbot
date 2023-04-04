@@ -165,6 +165,7 @@ export default function Home() {
             {errorMessage && <FloatingBanner message={errorMessage} />}
             <div className='flex flex-col items-center justify-center mt-40 text-center'>
                 <h1 className='text-6xl'>Welcome to SightBot.</h1>
+                <br/>
                 <h3 className='blog-promo'>Learn more about how this works and what else Brilliantly offers <a href="https://brilliantly.ai/blog/sightbot/" target="_blank" rel="noopener noreferrer">here</a>!</h3>
                 <div className='my-10'>
                     <input
