@@ -4,9 +4,11 @@ import Tooltip from './Tooltip';
 import QueryInfo from './QueryInfo';
 import ModeButtons from './ModeButtons';
 import CopyIcon from './CopyIcon';
+import SocialMetaTags from './SocialMetaTags';
 import RangeSlider from "react-range-slider-input";
 import 'react-range-slider-input/dist/style.css';
 import { useRouter } from 'next/router';
+// https://www.brilliantly.ai/blog/sightbot
 
 interface Conversation {
     role: string
@@ -154,6 +156,12 @@ export default function Home() {
 
     return (
         <div className='w-full'>
+            <SocialMetaTags
+                title="SightBot: A Conversational AI for Biomedical Research"
+                description="Made with love and AI by Brilliantly."
+                url="https://www.brilliantly.ai/blog/sightbot"
+                imageUrl="https://api.typedream.com/v0/document/public/1f5b4d3b-6aea-4b9d-8a5a-15bdc5c763be/2Nx4BozJ2grE79sVLnprWDJJjHQ_SightBotBlogImage.jpeg"
+            />
             {errorMessage && <FloatingBanner message={errorMessage} />}
             <div className='flex flex-col items-center justify-center mt-40 text-center'>
                 <h1 className='text-6xl'>Welcome to SightBot.</h1>
