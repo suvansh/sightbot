@@ -17,13 +17,13 @@ a {
     box-sizing: border-box;
 }
 
-a.source-link {
+a {
     color: #21b2a5;
     text-decoration: underline;
     cursor: pointer;
 }
 
-a.source-link:hover {
+a:hover {
     text-decoration: none;
 }
 
